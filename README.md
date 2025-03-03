@@ -21,7 +21,7 @@ pipenv install
 ```shell
 > export GITHUB_TOKEN="YOUR TOKEN HERE"
 
-> ./run.sh
+> ./run.sh octodemo
 
 Performance data for job "Analyze (cpp)" in workflow https://github.com/octodemo/codeql-simple-demo/tree/44913721b174229158283fbbe1dc4e5ff78ab7e5/.github/workflows/codeql-analysis.yml
     actions/checkout@v3:  1.0 seconds
