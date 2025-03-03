@@ -9,6 +9,7 @@ This script fetches information from an organization's audit log about past GitH
 2. `pipenv` package manager
 3. A `GITHUB_TOKEN` environment variable with a token that has access to read an organization's audit log as well as to all repositories contained in the organization.
 
+
 ## Install the dependencies
 
 ```shell
@@ -16,10 +17,12 @@ pipenv install
 ```
 
 
-## Running the script
+## Run the script
 ```shell
 > export GITHUB_TOKEN="YOUR TOKEN HERE"
+
 > ./run.sh
+
 Performance data for job "Analyze (cpp)" in workflow https://github.com/octodemo/codeql-simple-demo/tree/44913721b174229158283fbbe1dc4e5ff78ab7e5/.github/workflows/codeql-analysis.yml
     actions/checkout@v3:  1.0 seconds
     github/codeql-action/init@v2:  41.0 seconds
