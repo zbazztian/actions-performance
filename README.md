@@ -2,8 +2,21 @@
 
 This script fetches information from an organization's audit log about past GitHub Actions workflow runs. For each workflow run, it lists the jobs that were executed and for each of these it obtains the timing information for its steps. It also downloads the workflow's yaml definition file, parses it and maps the steps defined therein to the runtime step information obtained from the API. This allows measuring the time it took to execute each Action (indicated by the `uses` keyword in a step's definition).
 
-Example output:
 
+## Requirements
+
+1. Python 3
+2. `pipenv` package manager
+3. A `GITHUB_TOKEN` environment variable with a token that has access to read an organization's audit log as well as to all repositories contained in the organization.
+
+## Install the dependencies
+
+```shell
+pipenv install
+```
+
+
+## Running the script
 ```shell
 > export GITHUB_TOKEN="YOUR TOKEN HERE"
 > ./run.sh
@@ -30,8 +43,3 @@ Performance data for job "stale" in workflow https://github.com/octodemo/filmgir
 ...
 ```
 
-## Requirements
-
-1. Python 3
-2. `pipenv` package manager
-3. A `GITHUB_TOKEN` environment variable with a token that has access to read an organization's audit log as well as to all repositories contained in the organization.
