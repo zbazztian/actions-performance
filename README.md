@@ -7,7 +7,7 @@ This script fetches information from an organization's audit log about past GitH
 
 1. Python 3
 2. `pipenv` package manager
-3. A `GITHUB_TOKEN` environment variable with a token that has access to read an organization's audit log as well as to all repositories contained in the organization.
+3. A `GITHUB_TOKEN` environment variable with a token that has read access to an organization's audit log as well as to all repositories contained in the organization.
 
 
 ## Install the dependencies
