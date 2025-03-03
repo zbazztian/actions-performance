@@ -4,6 +4,7 @@ import requests
 import os
 from datetime import datetime
 from difflib import SequenceMatcher
+import sys
 
 
 def similarity(s1, s2):
@@ -13,6 +14,12 @@ def similarity(s1, s2):
 if not os.getenv('GITHUB_TOKEN'):
     print("Error: The environment variable 'GITHUB_TOKEN' is not set.")
     exit(1)
+
+if len(sys.argv) != 2:
+    print("Please specify an organization.")
+    exit(1)
+
+org = sys.argv[1]
 
 API = "https://api.github.com"
 VERSION_HDR = {"X-GitHub-Api-Version": "2022-11-28"}
@@ -26,7 +33,7 @@ headers = {
 }
 
 # get the audit log which contains past workflow runs
-response = requests.get(f"{API}/orgs/octodemo/audit-log", headers=headers, params={
+response = requests.get(f"{API}/orgs/{org}/audit-log", headers=headers, params={
     # we exclude dependabot worfklow runs, because they have synthetic workflow scripts that do not exist
     "phrase": "action:workflows.completed_workflow_run -actor:dependabot[bot]",
     "per_page": 100  # in production you would use pagination, for this example script we just look at the last 100 entries
